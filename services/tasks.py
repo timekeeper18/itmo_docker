@@ -1,5 +1,5 @@
 from celery import Celery
-celery_app = Celery(__name__ + '_app', broker='redis://localhost:6379/0', backend='redis://localhost:6379/0')
+celery_app = Celery(__name__ + '_app', broker='redis://0.0.0.0:14000/0', backend='redis://0.0.0.0:14000/0')
 
 
 # python3 -m celery -A tasks worker --loglevel=INFO

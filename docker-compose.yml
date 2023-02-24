@@ -1,0 +1,28 @@
+version: '3.1'
+services:
+
+  redis:
+    image: redis:7.0.8
+    container_name: rd01
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+     - '14000:6379'
+
+  webapp:
+    build: .
+    container_name: service
+    ports:
+      - '5000:5000'
+    links:
+      - redis
+    depends_on:
+      - redis
+
+
+  celery:
+    build: .
+    container_name: cl01
+    command: python3 -m celery -A tasks worker --loglevel=INFO
+    depends_on:
+      - redis
