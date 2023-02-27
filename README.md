@@ -7,7 +7,7 @@
 
 Для запуска понадобится файл `docker-compose.yml` и `Dockerfile`
 
-Команда запуска `docker-compose up -b` \
+Команда запуска `docker-compose up --build` \
 Запускать из той директории, в кторой расположены файлы `docker-compose.yml` и `Dockerfile`
 
 #### Зависимости: 
