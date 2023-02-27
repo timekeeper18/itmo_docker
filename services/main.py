@@ -2,7 +2,7 @@ from celery import Celery
 from flask import Flask, jsonify
 
 app = Flask(__name__)
-celery_app = Celery(__name__ + '_app', broker='redis://redis:5005/0', backend='redis://redis:6379/0')
+celery_app = Celery(__name__ + '_app', broker='redis://rds1:6379/0', backend='redis://rds1:6379/0')
 
 
 @app.route("/sum/<param1>/<param2>", methods=["GET"])
